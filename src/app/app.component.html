@@ -1,0 +1,8 @@
+﻿<mat-toolbar *ngIf="user" class="main-header mat-indigo">
+  <div fxLayout="row" fxLayoutGap="10px">
+    <div routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</div>
+    <div routerLink="/users" routerLinkActive="active">Users</div>
+    <div (click)="logout()">Logout</div>
+  </div>
+</mat-toolbar>
+<router-outlet></router-outlet>

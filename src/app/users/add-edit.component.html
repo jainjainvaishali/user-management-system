@@ -1,0 +1,52 @@
+﻿<div class="session">
+  <div class="session-content">
+    <div class="session-wrapper">
+      <mat-card>
+        <mat-card-content>
+          <h1 *ngIf="isAddMode">Add User</h1>
+          <h1 *ngIf="!isAddMode">Edit User</h1>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div>
+              <div>
+                <mat-form-field><input matInput type="text" formControlName="firstName" placeholder="First Name">
+                  <mat-error
+                    *ngIf="form.controls['firstName'].hasError('required') && form.controls['firstName'].touched"
+                    class="mat-text-warn">First Name is required.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field><input matInput type="text" formControlName="lastName" placeholder="Last Name">
+                  <mat-error *ngIf="form.controls['lastName'].hasError('required') && form.controls['lastName'].touched"
+                             class="mat-text-warn">Last Name is required.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <div>
+                <mat-form-field><input matInput type="text" formControlName="username" placeholder="Username">
+                  <mat-error *ngIf="form.controls['username'].hasError('required') && form.controls['username'].touched"
+                             class="mat-text-warn">Username is required.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field>
+                  <input matInput type="password" formControlName="password" placeholder="Password">
+                  <mat-error *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched"
+                             class="mat-text-warn">Password is required.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="2px" fxLayoutAlign="end">
+              <button mat-raised-button routerLink="/users">Cancel</button>
+              <button mat-raised-button color="primary" type="submit">Save</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
